@@ -14,10 +14,10 @@ function getHumanChoice(){
     return(humanChoice.toLowerCase());
 }
 
-// Function to playGame 5 times without using loop
+// Function to playGame 5 times using the 'for' loop
 function playGame(){
     // Function to determine winner of each round
-    function playRound(humanChoice, computerChoice){
+    function playRound(humanChoice, computerChoice){        
         if (humanChoice === computerChoice){
             console.log("This round is tie. Computer chose " + computerChoice + " Try Again!");
         } else if(humanChoice === gameTerms[0] && computerChoice === gameTerms[1]){
@@ -29,47 +29,19 @@ function playGame(){
         } else if(humanChoice === gameTerms[2] && computerChoice === gameTerms[0]){
             console.log(" You lose! Rock beats Scissors!");
             computerScore++;
-        }
-        else {
+        } else {
             console.log("You won this round!");
             humanScore++;
         }
     }
-    
-    const computerSelection = getComputerChoice(gameTerms);
-    const humanSelection = getHumanChoice();
-    console.log("Computer chose " + computerSelection);
-    console.log("You chose " + humanSelection);
-    playRound(humanSelection, computerSelection);
-    console.log("After this round, computer has: " + computerScore + ", and you have: " + humanScore);
-
-    const computerSelection1 = getComputerChoice(gameTerms);
-    const humanSelection1 = getHumanChoice();
-    console.log("Computer chose " + computerSelection1);
-    console.log("You chose " + humanSelection1);
-    playRound(humanSelection1, computerSelection1);
-    console.log("After this round, computer has: " + computerScore + ", and you have: " + humanScore);
-
-    const computerSelection2 = getComputerChoice(gameTerms);
-    const humanSelection2 = getHumanChoice();
-    console.log("Computer chose " + computerSelection2);
-    console.log("You chose " + humanSelection2);
-    playRound(humanSelection2, computerSelection2);
-    console.log("After this round, computer has: " + computerScore + ", and you have: " + humanScore);
-    
-    const computerSelection3 = getComputerChoice(gameTerms);
-    const humanSelection3 = getHumanChoice();
-    console.log("Computer chose " + computerSelection3);
-    console.log("You chose " + humanSelection3);
-    playRound(humanSelection3, computerSelection3);
-    console.log("After this round, computer has: " + computerScore + ", and you have: " + humanScore);
-
-    const computerSelection4 = getComputerChoice(gameTerms);
-    const humanSelection4 = getHumanChoice();
-    console.log("Computer chose " + computerSelection4);
-    console.log("You chose " + humanSelection4);
-    playRound(humanSelection4, computerSelection4);
-    console.log("After this round, computer has: " + computerScore + ", and you have: " + humanScore);
+    for (let i = 0; i < 5; i++){
+        const computerSelection = getComputerChoice(gameTerms);
+        const humanSelection = getHumanChoice();
+        console.log("Computer chose " + computerSelection);
+        console.log("You chose " + humanSelection);
+        playRound(humanSelection, computerSelection);
+        console.log("After this round, computer has: " + computerScore + ", and you have: " + humanScore);
+    }
 }
 
 playGame();
